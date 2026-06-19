@@ -76,12 +76,12 @@ if govnar[num]=1:$face[num]+=', под глазами темные круги п
 if souldar[num]=1:$face[num]+=', родинка над губой'
 if souldar[num]=2:$face[num]+=', родинка на носу'
 if souldar[num]=3:$face[num]+=', родинка на щеке'
-$d_lipsview={view("pic/misc/fullLips<<lips[num]>>.jpg")}
-$d_lip_tatview={view("pic/bodymod/tatlip<<lip_tat[num]>>.jpg")}
-if lips[num]=1:$face[num]+=', пухленькие <a class="plain" href="exec:dynamic $d_lipsview">губы</a>'
-if lips[num]=2:$face[num]+=', толстые <a class="plain" href="exec:dynamic $d_lipsview">губы</a>'
-if lips[num]=3:$face[num]+=', огромные <a class="plain" href="exec:dynamic $d_lipsview">губы</a>, похожие на букву О'
-if lip_tat[num]=1:$face[num]+='<a class="plain" href="exec:dynamic $d_lip_tatview">, на внутренней стороне губы татуировка</a>'
+$d_lipsview={view("pic/misc/fullLips<<args[0]>>.jpg")}
+$d_lip_tatview={view("pic/bodymod/tatlip<<args[0]>>.jpg")}
+if lips[num]=1:$face[num]+=', пухленькие <a class="plain" href="exec:dynamic $d_lipsview,<<lips[num]>>">губы</a>'
+if lips[num]=2:$face[num]+=', толстые <a class="plain" href="exec:dynamic $d_lipsview,<<lips[num]>>">губы</a>'
+if lips[num]=3:$face[num]+=', огромные <a class="plain" href="exec:dynamic $d_lipsview,<<lips[num]>>">губы</a>, похожие на букву О'
+if lip_tat[num]=1:$face[num]+='<a class="plain" href="exec:dynamic $d_lip_tatview,<<lip_tat[num]>>">, на внутренней стороне губы татуировка</a>'
 !* ----------------------------------- НОС ---------------------------------- *!
 if nose[num]=0:$face[num]+=', обыкновенный нос'
 if nose[num]=1:$face[num]+=', маленький вздернутый носик'
@@ -90,12 +90,12 @@ if nose[num]=3:$face[num]+=', широкий нос'
 if nose[num]=4:$face[num]+=', горбатый нос'
 if nose[num]=5:$face[num]+=', длинный, крючковатый нос'
 !* --------------------------------- ПИРСИНГ -------------------------------- *!
-$d_tonpirsview={view("pic/bodymod/tonpirs<<tongue_p[num]>>.jpg")}
-if tongue_p[num]=1:$face[num]+=', язык проколот и в него вставлена <a href="exec:dynamic $d_tonpirsview">штанга</a>'
-if tongue_p[num]>1:$face[num]+=', язык проколот и в него вставлены <a href="exec:dynamic $d_tonpirsview">штанги</a>'
-$d_nosepirsview={view("pic/bodymod/npirstipe<<nose_p[num]>>.jpg")}
-if nose_p[num]=1:$face[num]+=', нос проколот и в него вставлено <a class="plain" href="exec:dynamic $d_nosepirsview">колечко</a>'
-if nose_p[num]=2:$face[num]+=', нос проколот и в него вставлено <a class="plain" href="exec:dynamic $d_nosepirsview">большое кольцо</a>'
+$d_tonpirsview={view("pic/bodymod/tonpirs<<args[0]>>.jpg")}
+if tongue_p[num]=1:$face[num]+=', язык проколот и в него вставлена <a href="exec:dynamic $d_tonpirsview,<<tongue_p[num]>>">штанга</a>'
+if tongue_p[num]>1:$face[num]+=', язык проколот и в него вставлены <a href="exec:dynamic $d_tonpirsview,<<tongue_p[num]>>">штанги</a>'
+$d_nosepirsview={view("pic/bodymod/npirstipe<<args[0]>>.jpg")}
+if nose_p[num]=1:$face[num]+=', нос проколот и в него вставлено <a class="plain" href="exec:dynamic $d_nosepirsview,<<nose_p[num]>>">колечко</a>'
+if nose_p[num]=2:$face[num]+=', нос проколот и в него вставлено <a class="plain" href="exec:dynamic $d_nosepirsview,<<nose_p[num]>>">большое кольцо</a>'
 !* --------------------------------- ВОЛОСЫ --------------------------------- *!
 if curl[num]=0:$curl[num]=''
 if curl[num]=1:$curl[num]='кудрявые '
@@ -202,19 +202,19 @@ if skin[num]>=4:
 	end
 end
 $d_bodyview={
-	if pol[num]>0:view("pic/body/<<bodypic[num]>>.jpg")
-	if pol[num]=0:view("pic/bodyman/<<bodypic[num]>>.jpg")
+	if args[0]>0:view("pic/body/<<args[1]>>.jpg")
+	if args[0]=0:view("pic/bodyman/<<args[1]>>.jpg")
 }
+$bodybuild[num]='<a class="plain" href="exec:dynamic $d_bodyview,<<pol[num]>>,<<bodypic[num]>>"><<$bodybuild[num]>></a>'
 !* ---------------------------------- ГРУДЬ --------------------------------- *!
-$bodybuild[num]='<a class="plain" href="exec:dynamic $d_bodyview"><<$bodybuild[num]>></a>'
 if nip[num]<10:$nip[num]='крохотными сосками'
 if nip[num]>=10 and nip[num]<20:$nip[num]='маленькими сосками'
 if nip[num]>=20 and nip[num]<50:$nip[num]='крупными сосками диаметром <<nip[num]/10>>,<<nip[num] mod 10>> сантиметров'
 if nip[num]>=50:$nip[num]='огромными как блюдца сосками диаметром <<nip[num]/10>>,<<nip[num] mod 10>> сантиметров'
-$d_titspirsview={view("pic/bodymod/nippirs<<nip_p[num]>>.jpg")}
-if nip_p[num]=1:$nip[num]+='<a class="plain" href="exec:dynamic $d_titspirsview">, соски проколоты и в них вставлены штанги</a>'
-if nip_p[num]=2:$nip[num]+='<a class="plain"  href="exec:dynamic $d_titspirsview">, соски проколоты и в них вставлены колечки</a>'
-if nip_p[num]=3:$nip[num]+='<a class="plain" href="exec:dynamic $d_titspirsview">, соски проколоты и в них вставлены огромные кольца</a>'
+$d_titspirsview={view("pic/bodymod/nippirs<<args[0]>>.jpg")}
+if nip_p[num]=1:$nip[num]+='<a class="plain" href="exec:dynamic $d_titspirsview,<<nip_p[num]>>">, соски проколоты и в них вставлены штанги</a>'
+if nip_p[num]=2:$nip[num]+='<a class="plain"  href="exec:dynamic $d_titspirsview,<<nip_p[num]>>">, соски проколоты и в них вставлены колечки</a>'
+if nip_p[num]=3:$nip[num]+='<a class="plain" href="exec:dynamic $d_titspirsview,<<nip_p[num]>>">, соски проколоты и в них вставлены огромные кольца</a>'
 if t_slot[num]=0 and ut_slot[num]=0:
 	if tits[num]<10:tit[num]=0&$tits[num]='плоская грудь с <<$nip[num]>>'
 	if tits[num]>=10 and tits[num]<14:tit[num]=1&$tits[num]='Крошечная остренькая грудь <<tit[num]>>го размера с <<$nip[num]>>'
@@ -239,11 +239,11 @@ if dagongene>110 and num=you:
 else
 	$saggyYesNo=$iif (saggy[num]>0,"pic/tits/saggy<<$colorSkin>><<tit[num]>>.jpg","pic/tits/<<$colorSkin>><<tit[num]>>.jpg")
 end
-$d_titsview={view("pic/tits/<<iif(dagongene>110 and num=you, 'istmtits', '')>><<$colorSkin>><<tit[num]>>.jpg")}&!$d_titsview={view($saggyYesNo)}
+$d_titsview={view("pic/tits/<<$args[0]>>.jpg")}&!$d_titsview={view($saggyYesNo)}
 if tit[num]=0:$tits[num]=$iif(mus[num]>=2000 and mus[num]>fat[num],'Мускулистая грудь с <<$nip[num]>>','Плоская грудь с <<$nip[num]>>')
 if tit_hair[num]>0:$tits[num]+=', на груди растут волосы'
 if tit[num]=0:$full_tits[num]=$tits[num]
-if tit[num]>0:$full_tits[num]='<a class="plain" href="exec:dynamic $d_titsview"><<$tits[num]>></a>'
+if tit[num]>0:$full_tits[num]='<a class="plain" href="exec:dynamic $d_titsview,''<<iif(dagongene>110 and num=you, "istmtits", "")>><<$colorSkin>><<tit[num]>>''"><<$tits[num]>></a>'
 tslottemp=t_slot[num]
 if invis_t[tslottemp]=1 and t_slot[num]>0 and ut_slot[num]=0:
 	if tit[num]=0:$tits[num]=$iif(mus[num]>=2000 and mus[num]>fat[num],'Мускулистая грудь с <<$nip[num]>>','Плоская грудь с <<$nip[num]>>')
@@ -257,20 +257,21 @@ if invis_t[tslottemp]=1 and t_slot[num]>0 and ut_slot[num]=0:
 	 if tit_hair[num]>0:$tits[num]+=', на груди растут волосы'
 	 if tit_hair[num]<=0:$tits[num]+=', грудь гладкая и блестящая, без единого волоска'
 end
-if tit[num]>0:$tits[num]='<a class="plain" href="exec:dynamic $d_titsview"><<$tits[num]>></a>'
-$d_assview=$iif(dagongene>110 and num=you,{view("pic/body/istmAss<<assnum>>.jpg")},{view("pic/body/ass<<$colorSkin>><<assnum>>.jpg")})
+if tit[num]>0:$tits[num]='<a class="plain" href="exec:dynamic $d_titsview,''<<iif(dagongene>110 and num=you, "istmtits", "")>><<$colorSkin>><<tit[num]>>''"><<$tits[num]>></a>'
 tits_real[num]=tits[num]&tits[num]=args[101]
 fat_real[num]=fat[num]&fat[num]=args[100]
 !* --------------------------------- ЗАДНИЦА -------------------------------- *!
-if ass[num]<5:assnum=0&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Плоская мужская попа</a>'
-if ass[num]>=5 and ass[num]<10:assnum=1&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Крохотная попа</a>'
-if ass[num]>=10 and ass[num]<15:assnum=2&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Маленькая попа</a>'
-if ass[num]>=15 and ass[num]<20:assnum=3&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Небольшая попа</a>'
-if ass[num]>=20 and ass[num]<25:assnum=4&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Девичья попочка</a>'
-if ass[num]>=25 and ass[num]<30:assnum=rand(5,7)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Женственная попка</a>'
-if ass[num]>=30 and ass[num]<35:assnum=rand(8,10)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Крупная попа</a>'
-if ass[num]>=35 and ass[num]<40:assnum=rand(11,13)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Большая задница</a>'
-if ass[num]>=40:assnum=rand(14,15)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Огромная жопа</a>'
+$d_assview={view("pic/body/<<$args[0]>>.jpg")}
+if ass[num]<5:assnum=0&$ass[num]='Плоская мужская попа'
+if ass[num]>=5 and ass[num]<10:assnum=1&$ass[num]='Крохотная попа'
+if ass[num]>=10 and ass[num]<15:assnum=2&$ass[num]='Маленькая попа'
+if ass[num]>=15 and ass[num]<20:assnum=3&$ass[num]='Небольшая попа'
+if ass[num]>=20 and ass[num]<25:assnum=4&$ass[num]='Девичья попочка'
+if ass[num]>=25 and ass[num]<30:assnum=rand(5,7)&$ass[num]='Женственная попка'
+if ass[num]>=30 and ass[num]<35:assnum=rand(8,10)&$ass[num]='Крупная попа'
+if ass[num]>=35 and ass[num]<40:assnum=rand(11,13)&$ass[num]='Большая задница'
+if ass[num]>=40:assnum=rand(14,15)&$ass[num]='Огромная жопа'
+$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''"><<$ass[num]>></a>'
 tempseelegs[num]=0
 if l_slot[num]=0:tempseelegs[num]=1
 if l_slot[num]>0:
@@ -314,20 +315,20 @@ if vag[num]>0:
      if cunthair[num]>0 and cunthair[num]<5:vag_tipe[num]=1
      if cunthair[num]>=5:vag_tipe[num]=2
 	 if $genital[num]='':
-		 $d_pussytype={view("pic/vag/type<<vag_tipe[num]>>.jpg")}
+		 $d_pussytype={view("pic/vag/type<<args[0]>>.jpg")}
 		 $tatooyesno = "."
 		 if pubis_t[num]>0:$tatooyesno=', с набитой татуировкой.>'
-         if vag_tipe[num]=0:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">гладко-выбритое</a> влагалище<<$tatooyesno>>'
-         if vag_tipe[num]=1:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">покрытое небольщшими волосиками</a> влагалище<<$tatooyesno>>'
-         if vag_tipe[num]=2:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">скрытое волосами</a> влагалище<<$tatooyesno>>'
+         if vag_tipe[num]=0:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype,<<vag_tipe[num]>>">гладко-выбритое</a> влагалище<<$tatooyesno>>'
+         if vag_tipe[num]=1:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype,<<vag_tipe[num]>>">покрытое небольщшими волосиками</a> влагалище<<$tatooyesno>>'
+         if vag_tipe[num]=2:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype,<<vag_tipe[num]>>">скрытое волосами</a> влагалище<<$tatooyesno>>'
      else
 		$genital[num]+=', ниже члена находится влагалище'
      end
-	$d_clitpirsview={view("pic/bodymod/pirsclit<<vag_pirs[num]>>.jpg")}
-     if vag_pirs[num]=1:$genital[num]+=', клитор проколот и в него вставлена <a class="plain" href="exec:dynamic $d_clitpirsview">штанга</a>'
-     if vag_pirs[num]=2:$genital[num]+=', клитор проколот и в него вставлено <a class="plain" href="exec:dynamic $d_clitpirsview">колечко</a>'
-     if vag_pirs[num]=3:$genital[num]+=', клитор проколот и в него вставлено <a class="plain" href="exec:dynamic $d_clitpirsview">большое кольцо</a>'
-     if vag_pirs[num]=4:$genital[num]+=', клитор с которого свисает <a class="plain" href="exec:dynamic $d_clitpirsview">цепочка с колокольчиком</a>'
+	$d_clitpirsview={view("pic/bodymod/pirsclit<<args[0]>>.jpg")}
+     if vag_pirs[num]=1:$genital[num]+=', клитор проколот и в него вставлена <a class="plain" href="exec:dynamic $d_clitpirsview,<<vag_pirs[num]>>">штанга</a>'
+     if vag_pirs[num]=2:$genital[num]+=', клитор проколот и в него вставлено <a class="plain" href="exec:dynamic $d_clitpirsview,<<vag_pirs[num]>>">колечко</a>'
+     if vag_pirs[num]=3:$genital[num]+=', клитор проколот и в него вставлено <a class="plain" href="exec:dynamic $d_clitpirsview,<<vag_pirs[num]>>">большое кольцо</a>'
+     if vag_pirs[num]=4:$genital[num]+=', клитор с которого свисает <a class="plain" href="exec:dynamic $d_clitpirsview,<<vag_pirs[num]>>">цепочка с колокольчиком</a>'
 end
 !* ---------------------------------- АНУС ---------------------------------- *!
 if anus[num]=0:$anus[num]='Девственный анус'&anus_pic[num]=0
