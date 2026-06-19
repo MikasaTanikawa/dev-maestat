@@ -258,19 +258,19 @@ if invis_t[tslottemp]=1 and t_slot[num]>0 and ut_slot[num]=0:
 	 if tit_hair[num]<=0:$tits[num]+=', грудь гладкая и блестящая, без единого волоска'
 end
 if tit[num]>0:$tits[num]='<a class="plain" href="exec:dynamic $d_titsview"><<$tits[num]>></a>'
-$d_assview=$iif(dagongene>110 and num=you,{view("pic/body/istmAss<<assnum>>.jpg")},{view("pic/body/ass<<$colorSkin>><<assnum>>.jpg")})
 tits_real[num]=tits[num]&tits[num]=args[101]
 fat_real[num]=fat[num]&fat[num]=args[100]
 !* --------------------------------- ЗАДНИЦА -------------------------------- *!
-if ass[num]<5:assnum=0&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Плоская мужская попа</a>'
-if ass[num]>=5 and ass[num]<10:assnum=1&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Крохотная попа</a>'
-if ass[num]>=10 and ass[num]<15:assnum=2&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Маленькая попа</a>'
-if ass[num]>=15 and ass[num]<20:assnum=3&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Небольшая попа</a>'
-if ass[num]>=20 and ass[num]<25:assnum=4&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Девичья попочка</a>'
-if ass[num]>=25 and ass[num]<30:assnum=rand(5,7)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Женственная попка</a>'
-if ass[num]>=30 and ass[num]<35:assnum=rand(8,10)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Крупная попа</a>'
-if ass[num]>=35 and ass[num]<40:assnum=rand(11,13)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Большая задница</a>'
-if ass[num]>=40:assnum=rand(14,15)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Огромная жопа</a>'
+$d_assview=$iif(dagongene>110 and num=you,{view("pic/body/istmAss<<assnum[num]>>.jpg")},{view("pic/body/ass<<$colorSkin>><<assnum[num]>>.jpg")})
+if ass[num]<5:assnum[num]=0&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Плоская мужская попа</a>'
+if ass[num]>=5 and ass[num]<10:assnum[num]=1&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Крохотная попа</a>'
+if ass[num]>=10 and ass[num]<15:assnum[num]=2&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Маленькая попа</a>'
+if ass[num]>=15 and ass[num]<20:assnum[num]=3&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Небольшая попа</a>'
+if ass[num]>=20 and ass[num]<25:assnum[num]=4&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Девичья попочка</a>'
+if ass[num]>=25 and ass[num]<30:assnum[num]=rand(5,7)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Женственная попка</a>'
+if ass[num]>=30 and ass[num]<35:assnum[num]=rand(8,10)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Крупная попа</a>'
+if ass[num]>=35 and ass[num]<40:assnum[num]=rand(11,13)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Большая задница</a>'
+if ass[num]>=40:assnum[num]=rand(14,15)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Огромная жопа</a>'
 tempseelegs[num]=0
 if l_slot[num]=0:tempseelegs[num]=1
 if l_slot[num]>0:
