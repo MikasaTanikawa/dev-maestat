@@ -262,15 +262,16 @@ tits_real[num]=tits[num]&tits[num]=args[101]
 fat_real[num]=fat[num]&fat[num]=args[100]
 !* --------------------------------- ЗАДНИЦА -------------------------------- *!
 $d_assview={view("pic/body/<<$args[0]>>.jpg")}
-if ass[num]<5:assnum=0&$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''">Плоская мужская попа</a>'
-if ass[num]>=5 and ass[num]<10:assnum=1&$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''">Крохотная попа</a>'
-if ass[num]>=10 and ass[num]<15:assnum=2&$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''">Маленькая попа</a>'
-if ass[num]>=15 and ass[num]<20:assnum=3&$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''">Небольшая попа</a>'
-if ass[num]>=20 and ass[num]<25:assnum=4&$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''">Девичья попочка</a>'
-if ass[num]>=25 and ass[num]<30:assnum=rand(5,7)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''">Женственная попка</a>'
-if ass[num]>=30 and ass[num]<35:assnum=rand(8,10)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''">Крупная попа</a>'
-if ass[num]>=35 and ass[num]<40:assnum=rand(11,13)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''">Большая задница</a>'
-if ass[num]>=40:assnum=rand(14,15)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''">Огромная жопа</a>'
+if ass[num]<5:assnum=0&$ass[num]='Плоская мужская попа'
+if ass[num]>=5 and ass[num]<10:assnum=1&$ass[num]='Крохотная попа'
+if ass[num]>=10 and ass[num]<15:assnum=2&$ass[num]='Маленькая попа'
+if ass[num]>=15 and ass[num]<20:assnum=3&$ass[num]='Небольшая попа'
+if ass[num]>=20 and ass[num]<25:assnum=4&$ass[num]='Девичья попочка'
+if ass[num]>=25 and ass[num]<30:assnum=rand(5,7)&$ass[num]='Женственная попка'
+if ass[num]>=30 and ass[num]<35:assnum=rand(8,10)&$ass[num]='Крупная попа'
+if ass[num]>=35 and ass[num]<40:assnum=rand(11,13)&$ass[num]='Большая задница'
+if ass[num]>=40:assnum=rand(14,15)&$ass[num]='Огромная жопа'
+$ass[num]='<a class="plain" href="exec:dynamic $d_assview,''<<$iif(dagongene>110 and num=you,"istmAss<<assnum>>","ass<<$colorSkin>><<assnum>>")>>''"><<$ass[num]>></a>'
 tempseelegs[num]=0
 if l_slot[num]=0:tempseelegs[num]=1
 if l_slot[num]>0:
