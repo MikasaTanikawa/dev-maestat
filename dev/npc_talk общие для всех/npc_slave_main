@@ -1,9 +1,4 @@
 gs'stat'&gs'body'&gs'npcbase'&act'<b>Уйти</b>':gt 'preloc'
-if know['<<npc>>,<<you>>']=0:$startext[npc]='<<$nick[npc]>>'
-if know['<<npc>>,<<you>>']>0 and $surname[npc]!'':$startext[npc]='<<$name[npc]>> <<$surname[npc]>>'
-if know['<<npc>>,<<you>>']>0 and $surname[npc]='' and $title[npc]='':$startext[npc]='<<$name[npc]>>'
-if know['<<npc>>,<<you>>']>0 and $surname[npc]='' and $title[npc]!'':$startext[npc]='<<$title[npc]>> <<$name[npc]>>'
-if $slavename[npc]!'':$startext[npc]='<b><<$slavename[npc]>></b>'
 if $slavename[npc]='':'<b><<$name[npc]>> ваша рабыня</b>'
 if $slavename[npc]!'':'<b><<$slavename[npc]>> ваша рабыня</b>'
 if submission[npc]<=10:
